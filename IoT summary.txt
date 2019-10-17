@@ -1,0 +1,6 @@
+
+	Internet of Things (Iot) según la empresa Cisco es un termino referido al termino Industrial Internet (internet industrial) del cúal se habla en este documento (Libro 2 Chapter 1). Para la empresa GE (General Electric) el termino Industrial Internet también hace referencia a Industrial Internet of Things. Industrial Internet es una manera de proveer una solución para obtener una mayor visibilidad y percepción en las operaciones de la compañia y los activos a través de la integración de sensores, middleware, software, y backed cloud compute y storage system. 
+
+	Aparte, se explcia como Industrial Internet provee metodos de transformación empresarial en diferentes procesos usando como feedback el resultado obtenido de la consulta de grandes conjuntos de datos mediante análisis avanzados.
+
+	Además, se utilizan las técnicas y tecnologías utilizadas en las comunicaciones existentes M2M (Machine to machine) pero de manera diferente ya que la escala de utilización es totalmente diferente.
