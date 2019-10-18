@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\numberline {1}Contexto y descripci\IeC {\'o}n}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Esquema b\IeC {\'a}sico del hardware del sistema}{3}{section.1.1}
-\contentsline {chapter}{\numberline {2}Funcionamiento}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}ToDos}{6}{chapter.3}
-\contentsline {chapter}{\numberline {4}Ampliaciones}{7}{chapter.4}
+\contentsline {section}{\numberline {1.1}Esquema b\IeC {\'a}sico del hardware}{3}{section.1.1}
+\contentsline {chapter}{\numberline {2}Funcionamiento}{6}{chapter.2}
+\contentsline {chapter}{\numberline {3}ToDos}{8}{chapter.3}
+\contentsline {chapter}{\numberline {4}Ampliaciones}{9}{chapter.4}

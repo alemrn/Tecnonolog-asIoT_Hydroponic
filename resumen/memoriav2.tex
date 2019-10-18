@@ -92,13 +92,17 @@
 
 	Dispositivo para controlar una estación de riego 
 con múltiples salidas de riego. Dicho dispositivo 
-permitirá controlar hasta X bocas de riego, con programación 
+permitirá controlar 1 boca de riego, con programación 
 independiente, control de caudal en cada una de ellas, posibilidad 
 de agrupar varias bocas, riego inteligente (según predicción/medición 
 de lluvia, hora del día, sensor de humedad del suelo,...), arranque y
- parada de riego manual, avisos y estadísticas de riego. 
+ parada de riego manual, avisos y estadísticas de riego. El conjunto del proyecto se plantea para que el cultivo sea hidropónico\footnote{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.}
 
-\section{Esquema básico del hardware del sistema}
+\section{Esquema básico del hardware}
+
+	El esquema del proyecto se plantea de manera que sea necesario solo un dispositivo ESP8266 y una Raspberry Pi. El dispositivo Esp8266 se encargará de la lectura de los diferentes sensores junto a la actuación y decisión de activar los actuadores	correspondientes (Si es necesario cambiar el agua, activara la bomba pertinente).
+	
+	Como se muestra en la figura siguiente, se conectarán un sensor de humedad para comprobar el ambiente y en caso de necesidad se activará el motor de paso para proporcionar agua nueva o ventilar la estancia en caso de necesidad.
 	
 	\begin{figure}
 		\center
@@ -107,13 +111,26 @@ de lluvia, hora del día, sensor de humedad del suelo,...), arranque y
 		\label{Esquema_basico}
 	\end{figure}		
 	
+	Para la realización se estima la utilización de los siguientes componentes:	
+	
+	\subsection*{Materiales varios}
+	
+		\begin{itemize}
+			\item Tubos de plástico.	
+			\item Recipiente donde almacenar el agua y controlar el pH de la misma.
+			\item Bandeja donde colocar la planta y verter el agua.
+			\item Canalización de plástico donde colocar la planta.
+			\item Lana de roca.
+			\item Recipientes tipo malla u otro recipiente que permita el paso del agua.
+		\end{itemize}			
+	
 	\subsubsection*{Sensores}
 
 		\begin{itemize}
 			\item Humedad.
 			\item Fotovoltaico.
 			\item Temperatura.
-			\item Ph
+			\item pH.
 		\end{itemize}
 
 	\subsubsection*{Actuadores}
@@ -145,6 +162,16 @@ de lluvia, hora del día, sensor de humedad del suelo,...), arranque y
 
 \chapter{Funcionamiento}
 
+	El funcionamiento del proyecto consistirá en dos partes bien diferenciadas. La primera, está simbolizada en la figura siguiente \ref{Funcionamiento}, donde se irán leyendo los sensores cada cierto tiempo. En caso de necesidad se activarán los actuadores y en caso contrario el dispositivo quedará suspendido hasta que paso el tiempo correspondiente. También se activarán al principio de la ejecución la rutina de interrupción, para permitir qué, en el caso de que el dispositivo esté dormido y el usuario quiera realizar un cambio, se despierte y se realicen los cambios con los actuadores según ordene la placa Raspberry Pi.
+
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.5]{./images/funcionamientoESP8266.jpg}
+		\caption{Funcionamiento del módulo ESP8266}
+		\label{Funcionamiento}
+	\end{figure}
+	
+	La placa Raspberry, por el contrario, será la encargada de manejar la Base de Datos (BBDD) donde se almacenarán los datos recogidos por el Esp8266, y la interfaz gráfica con la que el usuario podrá interactuar con el sistema.
 
 \chapter{ToDos}
 
