@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{sensores}
+Sensores para monitorización de plantas hidropónicas.
+
+\bibitem{2014}
+Diseño de un sistema de riego asistido por hardware arduino, Sep 2014.
+
+\bibitem{ecoinventos_2019}
+Ensayo experimental en hidroponia orgánica, el futuro de la agricultura.
+\newblock
+  \url{https://ecoinventos.com/ensayo-experimental-en-hidroponia-organica/},
+  Jul 2019.
+
+\bibitem{ruiz}
+Cristian Ruiz.
+\newblock Servet – un proyecto de ciencia ciudadana.
+\newblock
+  \url{https://openlanuza.com/cultivo-hidroponico-inteligente-controlado-por-arduino/}.
+
+\end{thebibliography}

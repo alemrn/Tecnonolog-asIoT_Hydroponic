@@ -39,7 +39,7 @@
 % Editar con los datos correspondientes
 \newcommand{\titulo}{Controlador de Riego de Cultivo Hidropónico}
 \newcommand{\titulacion}{Máster de Ingeniería Informática}
-\newcommand{\autor}{AÑADATE , Alexander Quesada López}
+\newcommand{\autor}{Alejandro Moreno Echevarría , Alexander Quesada López}
 %\newcommand{\director}{}
 
 % Colors definitions
@@ -89,7 +89,7 @@
 \listoffigures
 
 \chapter{Contexto y Descripción}
-	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Thnigs) para controlar un cultivo hidropónico\footnote[1]{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.} de forma autosuficiente. Para ello, se diseñará y construirá una jardinera adaptada para soportar este tipo de cultivos a la cual se integrará un  dispositivo IoT. 
+	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Thnigs) para controlar un cultivo hidropónico\footnote[1]{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.\cite{ecoinventos_2019}} de forma autosuficiente. Para ello, se diseñará y construirá una jardinera adaptada para soportar este tipo de cultivos a la cual se integrará un  dispositivo IoT. 
 
 
 	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad, ph,...) a través de sensores, y en función del tipo de cultivo y los valores registrados se activarán automáticamente diversos sistema que garanticen unas condiciones óptimas para el crecimiento del cultivo.
@@ -100,7 +100,7 @@
 
 	El núcleo del sistema hardware estará compuesto por un dispositivo una Raspberry Pi y el ESP8266 al que se interconectarán los sensores y actuadores necesarios para el sistema. Por tanto, el dispositivo ESP8266 se encargará de la lectura de los diferentes sensores junto a la actuación y decisión de activar los actuadores correspondientes. Por ejemplo, si es necesario cambiar el agua se activará la bomba pertinente.
 
-	Por otro lado, la interacción con el usuario (configuración, información,...) se llevará a cabo en la Raspberry que estará conectada al ESP8266. 
+	Por otro lado, la interacción con el usuario (configuración, información,...) se llevará a cabo en la Raspberry que estará conectada al ESP8266. \cite{ruiz}
 	
 	A modo de ejemplo, en la siguiente figura se muestra el esquema general de la solución donde se ha ubicado un sensor de humedad para comprobar la humedad en el ambiente y en caso de necesidad se activará el motor de paso para proporcionar agua nueva o ventilar la estancia en caso si procede. Siguiendo este esquema, se conectarían al sistema el resto de sensores y actuadores necesarios.
 	
@@ -113,8 +113,8 @@
 	
 	Para la realización se estima la utilización de los siguientes componentes:	
 	
-	\subsection*{Materiales y Elementos necesarios}
-	\subsubsection*{Materiales para la construcción de la jardinera}
+	\section{Materiales y Elementos necesarios\cite{2014}}
+	\subsection*{Materiales para la construcción de la jardinera}
 
 		\begin{itemize}
 			\item Tubos de plástico.
@@ -126,8 +126,8 @@
 			\item Nutrientes para el cultivo.
 		\end{itemize}			
 	
-	\subsubsection*{Sensores}
-	Alguno de los sensores necesarios, estarán en contacto directo con el agua y por tanto, será necesario que sean sumergibles.
+	\subsection*{Sensores}
+	Alguno de los sensores necesarios, estarán en contacto directo con el agua y por tanto, será necesario que sean sumergibles.\cite{sensores}
 		\begin{itemize}
 			\item Humedad.
 			\item Fotovoltaico.
@@ -136,7 +136,7 @@
 			\item Conductividad.
 		\end{itemize}
 
-	\subsubsection*{Actuadores}
+	\subsection*{Actuadores}
 
 		\begin{itemize}
 			\item Bomba de riego.
@@ -145,20 +145,20 @@
 			\item Interruptor (Encendido y apagado del sistema).
 		\end{itemize}			
 	
-	\subsubsection*{Controladores}
+	\subsection*{Controladores}
 		
 		\begin{itemize}
-			\item RaspberriPi.
+			\item Raspberry Pi.
 			\item ESP8266 | NodemCu.
 		\end{itemize}			
 	
-	\subsubsection*{Información a tratar}
+	\subsection*{Información a tratar}
 		
 		\begin{itemize}
 			\item \textbf{Sensores-ESP8266:} los datos del cultivo que controla.
 			\item \textbf{ESP8266-Actuadores:} diferentes ordenes para mantener el cultivo que controla.
 			\item \textbf{ESP8266-RasPi:} los datos recogidos de los sensores.
-			\item \textbf{RasPi-ESP8266:} Intrucciones correspondientes a los datos externos recogidos (Lluvia, temperatura, sol,...). Información del usuario | Internet.
+			\item \textbf{RasPi-ESP8266:} Instrucciones correspondientes a los datos externos recogidos (Lluvia, temperatura, sol,...). Información del usuario | Internet.
 			
 		\end{itemize}
 
@@ -183,7 +183,7 @@
 	Consiste en la elección de los modelos concretos de los componentes utilizados principalmente como sensores y actuadores. Antes de adquirir cualquiera de estos dispositivos, se intentarán usar algunos componentes de los que ya disponemos y en el caso de que no sea así, se usar los disponibles en el laboratorio de la asignatura. 
 
 	\subsection*{Programación de los diferentes componentes}
-\color{red} ¿a que te refieres con esto? \color{black}
+		Programación de la placa Esp8266 con la funcionalidad requerida y, programación y configuración de los diferentes programas de la placa de desarrollo Raspberry Pi.
 	
 	\subsection*{Cableado del sistema}
 	Diseño y preparación del cableado adecuado para la construcción del prototipo. Es posible que se requiera de soldaduras y la necesidad de aislar los componentes electrónicos del agua empleada para el cultivo.
@@ -194,28 +194,28 @@
 	\subsection*{Instalación de los diferentes componentes en la jardinera}
 	Integración del modelo de jardinería con el sistema electrónico desarrollado para formar el prototipo final. Es importante tener en cuenta el aislamiento de los componentes electrónicos del agua del modelo de jardinería. No se dispone aún de los conocimientos necesarios.
 
-\subsection*{Definición de una tabla actuación según valores registrados}
+\subsection*{Definición de una tabla de actuación según valores registrados}
 	Definir una tabla de valores umbrales de las medidas obtenidas por los sensores según el tipo de cultivo. Para el tipo de cultivo definido en el prototipo se fijarán los valores óptimos para dicho cultivo y se definirán las acciones a llevar a cabo una vez superados los valores umbrales.
 	
 	\subsection*{Instalación de la BBDD MongoDB}
-	Instalación y configuración inicial del sistema de BBDD Mongo DB dentro en RaspberriPi. Alguno de los componentes del grupo, ya ha realizado esta tarea anteriormente.
+	Instalación y configuración inicial del sistema de BBDD MongoDB dentro  Raspberry Pi. Alguno de los componentes del grupo, ya ha realizado esta tarea anteriormente.
 	
 	\subsection*{Programación de la BBDD}
-	Diseñar el modelado y programación de la base de datos en el sistema Mongo BD, para adaptar este sistema a las necesidades del proyecto. Se tiene experiencia en la ejecución de esta tarea en otros proyectos.
+	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. Se tiene experiencia en la ejecución de esta tarea en otros proyectos.
 	
-	\subsection*{Instalación de la API Node-Red}
-	
-	\subsection*{Programación de la API con Node-Red}
+	\subsection*{Instalación y programación de la API Node-Red}
+	Instalar la API Node-Red para la configuración y desarrollo de la interfaz gráfica que será puente entre el usuario y el sistema. Esta GUI, mostrará los datos recogidos de los sensores y tendrá diferentes funcionalidades para que el usuario pueda interactuar con el sistema, cambiado el horario de cambio de agua, encendiendo o apagando el sistema, o cambiado los valores de la planta en caso de que se plante una variedad diferente.
 	
 	\subsection*{Probar el sistema y solucionar posibles fallos}
 	Elaborar plan de pruebas, donde se describan las pruebas a realizar sobre el prototipo desarrollado. A partir de los errores detectados en el plan de pruebas, se deberán de solucionar dichos fallos hasta conseguir una versión final y estable del sistema.
 Se dispone de integrantes del grupo con experiencia en elaboración de planes de prueba.
-
 	
 
 \chapter{Ampliaciones}
 
-	\subsection*{Motor de control de persiana}
+	\subsection*{Motor de control de persiana o toldo}
+	Para controlar la luminosidad del cultivo, se plantea como ampliación la instalación de un motor adicional para el control de la luz natural. Esta ampliación consistirá en la programación y configuración de una persiana móvil, o toldo, con un motor bidireccional. En caso de que haya demasiada luz, la cual pueda llegar a quemar la planta se activará el motor para bajar la persiana o toldo y reducir así la luz que incida en la planta. En caso de que la luz sea insuficiente y sea de día se activará para recoger la persiana o el toldo.
+	
 	\subsection*{Iluminación artificial}
 	Para cultivos de interior o en zonas de poca iluminación, esta ampliación consiste en utilizar un sistema de iluminación artificial controlada por nuestro dispositivo. La ampliación consistiría en garantizar que el cultivo recibe la iluminación necesaria a partir de las lecturas del sensor fotovoltaico, en caso de que no fuera así se encendería el sistema de iluminación.
 
@@ -225,7 +225,10 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 
 	\subsection*{Consideración de las predicciones metorológicos}
 	Integrar el sistema actual con los valores de predicciones meteorológicas de forma que el sistema las tenga en cuenta en sus decisiones. Es decir, que además de los datos obtenidos sobre las lecturas de sensores realizadas, se tenga en cuenta las predicciones meteorológicas para la toma de decisiones en el sistema.
-
-
 	
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{plain}
+\bibliography{memoria}
+
 \end{document}
