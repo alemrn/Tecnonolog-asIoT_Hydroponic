@@ -89,10 +89,10 @@
 \listoffigures
 
 \chapter{Contexto y Descripción}
-	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Thnigs) para controlar un cultivo hidropónico\footnote[1]{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.\cite{ecoinventos_2019}} de forma autosuficiente. Para ello, se diseñará y construirá una jardinera adaptada para soportar este tipo de cultivos a la cual se integrará un  dispositivo IoT. 
+	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Things) para controlar un cultivo hidropónico\footnote[1]{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.\cite{ecoinventos_2019}} de forma autosuficiente. Para ello, se diseñará y construirá una jardinera adaptada para soportar este tipo de cultivos a la cual se integrará un  dispositivo IoT. 
 
 
-	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad, ph,...) a través de sensores, y en función del tipo de cultivo y los valores registrados se activarán automáticamente diversos sistema que garanticen unas condiciones óptimas para el crecimiento del cultivo.
+	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad, pH,...) a través de sensores, y en función del tipo de cultivo y los valores registrados se activarán automáticamente diversos sistema que garanticen unas condiciones óptimas para el crecimiento del cultivo.
 
 
 
@@ -111,9 +111,10 @@
 		\label{Esquema_basico}
 	\end{figure}		
 	
-	Para la realización se estima la utilización de los siguientes componentes:	
 	
-	\section{Materiales y Elementos necesarios\cite{2014}}
+	\section{Materiales y Elementos necesarios}
+	A continuación se indican los materiales necesarios para la construcción del prototipo, que estará compuesto por una jardinera para los cultivos adaptada al dispositivo IoT desarrollado.\cite{2014}
+
 	\subsection*{Materiales para la construcción de la jardinera}
 
 		\begin{itemize}
@@ -158,7 +159,7 @@
 			\item \textbf{Sensores-ESP8266:} los datos del cultivo que controla.
 			\item \textbf{ESP8266-Actuadores:} diferentes ordenes para mantener el cultivo que controla.
 			\item \textbf{ESP8266-RasPi:} los datos recogidos de los sensores.
-			\item \textbf{RasPi-ESP8266:} Instrucciones correspondientes a los datos externos recogidos (Lluvia, temperatura, sol,...). Información del usuario | Internet.
+			\item \textbf{RasPi-ESP8266:} Instrucciones correspondientes a los datos externos recogidos (lluvia, temperatura, iluminación,...) desde Internet. También permite la configuración por parte del usuario y la visualización de los datos recogidos.
 			
 		\end{itemize}
 
@@ -166,10 +167,10 @@
 
 	El funcionamiento del proyecto consistirá en dos partes bien diferenciadas. La primera, está simbolizada en la figura siguiente \ref{Funcionamiento}, donde se irán leyendo los sensores cada cierto tiempo. En caso de necesidad se activarán los actuadores y en caso contrario el dispositivo quedará suspendido hasta que paso el tiempo correspondiente. También se activarán al principio de la ejecución la rutina de interrupción, para permitir qué, en el caso de que el dispositivo esté dormido y el usuario quiera realizar un cambio, se despierte y se realicen los cambios con los actuadores según ordene la placa Raspberry Pi.
 
-	\begin{figure}
+	\begin{figure}[H]
 		\center
 		\includegraphics[scale=0.5]{./images/funcionamientoESP8266.jpg}
-		\caption{Funcionamiento del módulo ESP8266}
+		\caption{Funcionamiento del módulo ESP8266.}
 		\label{Funcionamiento}
 	\end{figure}
 	
@@ -221,7 +222,7 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 
 
 	\subsection*{Ampliación del tipo de sensores}
-	Aunque no esta previsto inicialmente, es posible que para determinados cultivos sea necesario usar otro tipo de sensores como por ejemplo un sensor que obtenga la cantidad oxígeno disuelto en agua.
+	Aunque no está previsto inicialmente, es posible que para determinados cultivos sea necesario usar otro tipo de sensores como por ejemplo un sensor que obtenga la cantidad oxígeno disuelto en agua.
 
 	\subsection*{Consideración de las predicciones metorológicos}
 	Integrar el sistema actual con los valores de predicciones meteorológicas de forma que el sistema las tenga en cuenta en sus decisiones. Es decir, que además de los datos obtenidos sobre las lecturas de sensores realizadas, se tenga en cuenta las predicciones meteorológicas para la toma de decisiones en el sistema.
