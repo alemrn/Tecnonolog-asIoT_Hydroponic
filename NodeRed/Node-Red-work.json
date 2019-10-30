@@ -1,0 +1,64 @@
+[
+    {
+        "id": "c3180dd1.56264",
+        "type": "ui_chart",
+        "z": "6d997cfe.d204f4",
+        "name": "Presión",
+        "group": "8154c5eb.16f1d8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Presión",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "3000",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 702.5000114440918,
+        "y": 421.0000057220459,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8154c5eb.16f1d8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Datos II",
+        "tab": "d4c6eacd.9dad88",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d4c6eacd.9dad88",
+        "type": "ui_tab",
+        "z": "",
+        "name": "leds",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
