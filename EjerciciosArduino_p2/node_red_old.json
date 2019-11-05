@@ -1,0 +1,281 @@
+[
+    {
+        "id": "d131877c.12f888",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "716d8702.50dc28",
+        "type": "mqtt in",
+        "z": "d131877c.12f888",
+        "name": "",
+        "topic": "master/temperatura/TeSeguimosEsperando",
+        "qos": "2",
+        "broker": "fc5c9554.5f0878",
+        "x": 191.5,
+        "y": 253.00000286102295,
+        "wires": [
+            [
+                "6d3308e3.ffa368"
+            ]
+        ]
+    },
+    {
+        "id": "6d3308e3.ffa368",
+        "type": "json",
+        "z": "d131877c.12f888",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 504.50000762939453,
+        "y": 247.00000667572021,
+        "wires": [
+            [
+                "ee83c43b.4813a8",
+                "74d762d3.fa179c"
+            ]
+        ]
+    },
+    {
+        "id": "fe9b0c6e.5d3a",
+        "type": "ui_text",
+        "z": "d131877c.12f888",
+        "group": "b35d051c.b7a3b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Última actualización",
+        "format": "{{value}}",
+        "layout": "row-left",
+        "x": 1167.5000076293945,
+        "y": 215.00000286102295,
+        "wires": []
+    },
+    {
+        "id": "23a3db65.34d7e4",
+        "type": "change",
+        "z": "d131877c.12f888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tiempo",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 941.0000076293945,
+        "y": 216.00000286102295,
+        "wires": [
+            [
+                "fe9b0c6e.5d3a"
+            ]
+        ]
+    },
+    {
+        "id": "e3ac39cd.45c968",
+        "type": "ui_gauge",
+        "z": "d131877c.12f888",
+        "name": "",
+        "group": "b35d051c.b7a3b8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 918.5000076293945,
+        "y": 292.00000286102295,
+        "wires": []
+    },
+    {
+        "id": "ee83c43b.4813a8",
+        "type": "change",
+        "z": "d131877c.12f888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.BME280.Temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 711.5000076293945,
+        "y": 284.00000286102295,
+        "wires": [
+            [
+                "e3ac39cd.45c968"
+            ]
+        ]
+    },
+    {
+        "id": "d5e64704.1881f8",
+        "type": "mqtt in",
+        "z": "d131877c.12f888",
+        "name": "",
+        "topic": "master/humedad/TeSeguimosEsperando",
+        "qos": "2",
+        "broker": "fc5c9554.5f0878",
+        "x": 187,
+        "y": 477,
+        "wires": [
+            [
+                "ca6e71fe.ec78a"
+            ]
+        ]
+    },
+    {
+        "id": "ca6e71fe.ec78a",
+        "type": "json",
+        "z": "d131877c.12f888",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 527.0000114440918,
+        "y": 474.0000057220459,
+        "wires": [
+            [
+                "6197889e.a41e88"
+            ]
+        ]
+    },
+    {
+        "id": "6d13ee06.8b75d",
+        "type": "ui_gauge",
+        "z": "d131877c.12f888",
+        "name": "",
+        "group": "b35d051c.b7a3b8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 972.0000228881836,
+        "y": 469.0000057220459,
+        "wires": []
+    },
+    {
+        "id": "6197889e.a41e88",
+        "type": "change",
+        "z": "d131877c.12f888",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.BME280.Humedad",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 743.0000228881836,
+        "y": 471.0000057220459,
+        "wires": [
+            [
+                "6d13ee06.8b75d"
+            ]
+        ]
+    },
+    {
+        "id": "74d762d3.fa179c",
+        "type": "function",
+        "z": "d131877c.12f888",
+        "name": "",
+        "func": "var ahora = new Date();  // obtengo la fecha y hora actual en un objeto de la clase \"Date\"\n\nmsg.payload={};\n\nmsg.payload.fecha=ahora;\n\nmsg.payload.timestamp=ahora.getTime(); \n\nmsg.payload.hora=ahora.toLocaleTimeString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\nmsg.payload.dia=ahora.toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' });\n\nmsg.payload.tiempo = msg.payload.dia + \" \" +  msg.payload.hora ;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 753.0000076293945,
+        "y": 227.00000286102295,
+        "wires": [
+            [
+                "23a3db65.34d7e4"
+            ]
+        ]
+    },
+    {
+        "id": "fc5c9554.5f0878",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "b35d051c.b7a3b8",
+        "type": "ui_group",
+        "z": "",
+        "name": "datos I",
+        "tab": "6de8ea86.35aa54",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6de8ea86.35aa54",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Temp",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
