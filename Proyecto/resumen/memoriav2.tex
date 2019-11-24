@@ -229,11 +229,6 @@ Interruptor & Pulsador switch 12mm & 0,4 \\ \hline
 \subsection*{Definición de una tabla de actuación según valores registrados}
 	Definir una tabla de valores umbrales de las medidas obtenidas por los sensores según el tipo de cultivo. Para el tipo de cultivo definido en el prototipo se fijarán los valores óptimos para dicho cultivo y se definirán las acciones a llevar a cabo una vez superados los valores umbrales.
 	
-	\subsection*{Instalación de la BBDD MongoDB}
-	YO usaria LO QUE VIMOS EN APPNUBE Y LO MONTARIA EN INTERNET LA MONGO DB
-	
-	\subsection*{Programación de la BBDD}
-	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. Se tiene experiencia en la ejecución de esta tarea en otros proyectos.
 	
 	\subsection*{Instalación y programación de la API Node-Red}
 	Instalar la API Node-Red para la configuración y desarrollo de la interfaz gráfica que será puente entre el usuario y el sistema. Esta GUI, mostrará los datos recogidos de los sensores y tendrá diferentes funcionalidades para que el usuario pueda interactuar con el sistema, cambiado el horario de cambio de agua, encendiendo o apagando el sistema, o cambiado los valores de la planta en caso de que se plante una variedad diferente.
@@ -248,6 +243,10 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 \subsection*{Alertas y notificaciones al usuario}
 	Permitir que el usuario defina una serie de valores umbrales y una vez se sobrepasen dichos valores, este sea avisado vía mail del estado del sistema para que se tomen las medidas necesarias en el caso de que fuesen necesarias.
 
+	\subsection*{Registro de la información en BBDD Mongo DB}
+	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. El objetivo es poder almacenar la información recibida en BBDD para en caso de caida del equipo sea posible recuperar los datos registrados o configuración del sistema. La BD Mongo DB se encontrará en instalada con Cloud (https://www.mongodb.com/cloud/atlas).
+
+
 	\subsection*{Motor de control de persiana o toldo}
 	Para controlar la luminosidad del cultivo, se plantea como ampliación la instalación de un motor adicional para el control de la luz natural. Esta ampliación consistirá en la programación y configuración de una persiana móvil, o toldo, con un motor bidireccional. En caso de que haya demasiada luz, la cual pueda llegar a quemar la planta se activará el motor para bajar la persiana o toldo y reducir así la luz que incida en la planta. En caso de que la luz sea insuficiente y sea de día se activará para recoger la persiana o el toldo.
 	
@@ -257,6 +256,8 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 
 	\subsection*{Ampliación del tipo de sensores}
 	Aunque no está previsto inicialmente, es posible que para determinados cultivos sea necesario usar otro tipo de sensores como por ejemplo un sensor que obtenga la cantidad oxígeno disuelto en agua.
+
+
 
 
 	
