@@ -37,9 +37,9 @@
 \definecolor{grisfosc}{gray}{0.25}
 
 % Editar con los datos correspondientes
-\newcommand{\titulo}{Controlador de Riego de Cultivo Hidropónico}
+\newcommand{\titulo}{Sistema Autónomo de Riego y Monitorización de un Cultivo}
 \newcommand{\titulacion}{Máster de Ingeniería Informática}
-\newcommand{\autor}{Alejandro Moreno Echevarría , Alexander Quesada López}
+\newcommand{\autor}{Carlos Barranco , Alexander Quesada López}
 %\newcommand{\director}{}
 
 % Colors definitions
@@ -89,20 +89,22 @@
 \listoffigures
 
 \chapter{Contexto y Descripción}
-	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Things) para controlar un cultivo hidropónico\footnote[1]{El cultivo hidropónico es aquel que prescinde totalmente de la tierra para cultivar los alimentos.\cite{ecoinventos_2019}} de forma autosuficiente. Para ello, se diseñará y construirá una jardinera adaptada para soportar este tipo de cultivos a la cual se integrará un  dispositivo IoT. 
+	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Things) para el control de un cultivo equipado con un sistema de riego inteligente. Por tanto, el usuario podrá conocer en todo momento las condiciones ambientales en las que se encuentra el cultivo y consultar el histórico de las mediciones realizadas. Además el sistema garantizará que el cultivo poseerá el agua necesaria en todo momento de forma inteligente y eficiente, ya que se tendra en cuenta tanto las condiciones actuales como las previsiones meteorológicas. Para ello, a modo de prototipo se diseñará y construirá una jardinera adaptada capaz de soportar un cultivo y a la que sea posible adaptar los elementos IoT necesarios.
 
 
-	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad, pH,...) a través de sensores, y en función del tipo de cultivo y los valores registrados se activarán automáticamente diversos sistema que garanticen unas condiciones óptimas para el crecimiento del cultivo.
+	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad aire, humedad suelo,...) a través de sensores, y en función del tipo de cultivo y los valores registrados  se activará el sistema de riego del sistema. En una segunda fase, se podrán incluir otras funcionalidades como el aviso al usuario cuando en algunos de los parámetros registrados se sobrepasen valores umbrales vía mail.
 
 
 
 \chapter{Esquema básico del hardware}
 
-	El núcleo del sistema hardware estará compuesto por un dispositivo una Raspberry Pi y el ESP8266 al que se interconectarán los sensores y actuadores necesarios para el sistema. Por tanto, el dispositivo ESP8266 se encargará de la lectura de los diferentes sensores junto a la actuación y decisión de activar los actuadores correspondientes. Por ejemplo, si es necesario cambiar el agua se activará la bomba pertinente.
+	El núcleo del sistema hardware estará compuesto por un dispositivo una Raspberry Pi y el ESP8266 al que se interconectarán los sensores y actuadores necesarios para el sistema. Por tanto, el dispositivo ESP8266 se encargará de la lectura de los diferentes sensores junto a la actuación y decisión de activar los actuadores correspondientes. Por ejemplo, si es necesario activar el sistema de riego.
 
-	Por otro lado, la interacción con el usuario (configuración, información,...) se llevará a cabo en la Raspberry que estará conectada al ESP8266. \cite{ruiz}
+	Por otro lado, el usuario podrá interactuar con el sistema a través de un cuadro de mandos desarrollado en Node-Red, que se instalará en la Raspberry, la cual a su vez estará conectada al ESP8266. \cite{ruiz}
 	
-	A modo de ejemplo, en la siguiente figura se muestra el esquema general de la solución donde se ha ubicado un sensor de humedad para comprobar la humedad en el ambiente y en caso de necesidad se activará el motor de paso para proporcionar agua nueva o ventilar la estancia en caso si procede. Siguiendo este esquema, se conectarían al sistema el resto de sensores y actuadores necesarios.
+	A modo de ejemplo, en la siguiente figura se muestra el esquema general de la solución donde se ha ubicado un sensor de humedad del suelo, en función de las mediciones del mismo se decidirá si es necesario activar la bomba de agua para que sea posible regar el cultivo.
+
+Siguiendo este esquema, se conectarían al sistema el resto de sensores y actuadores necesarios.
 	
 	\begin{figure}
 		\center
@@ -119,12 +121,8 @@
 
 		\begin{itemize}
 			\item Tubos de plástico.
-			\item Recipiente donde almacenar el agua y controlar el pH de la misma.
 			\item Bandeja donde colocar la planta y verter el agua.
 			\item Canalización de plástico donde colocar la planta.
-			\item Lana de roca.
-			\item Recipientes tipo malla u otro recipiente que permita el paso del agua.
-			\item Nutrientes para el cultivo.
 		\end{itemize}			
 	
 	\subsection*{Sensores}
@@ -132,20 +130,17 @@
 
 Alguno de los sensores necesarios, estarán en contacto directo con el agua y por tanto, será necesario que sean sumergibles.\cite{sensores}
 		\begin{itemize}
-			\item Humedad.
+			\item Humedad aire.
+			\item Humedad suelo.
 			\item Fotovoltaico.
 			\item Temperatura.
-			\item pH.
-			\item Conductividad.
 		\end{itemize}
 
 	\subsection*{Actuadores}
 
 		\begin{itemize}
 			\item Bomba de riego.
-			\item Motores de paso.
-			\item Servo Motores.
-			\item Interruptor (Encendido y apagado del sistema).
+			\item Interruptor (Encendido y apagado del sistema de forma manual).
 		\end{itemize}			
 	
 	\subsection*{Controladores}
@@ -154,7 +149,6 @@ Alguno de los sensores necesarios, estarán en contacto directo con el agua y po
 			\item Raspberry Pi.
 			\item ESP8266 | NodemCu.
 		\end{itemize}			
-
 
 	
 	\subsection*{Información a tratar}
@@ -173,6 +167,8 @@ Alguno de los sensores necesarios, estarán en contacto directo con el agua y po
 
 \newpage
 \section{Presupuesto}
+
+REVISAR
 
 \begin{table}[htbp]
 \begin{center}
@@ -234,7 +230,7 @@ Interruptor & Pulsador switch 12mm & 0,4 \\ \hline
 	Definir una tabla de valores umbrales de las medidas obtenidas por los sensores según el tipo de cultivo. Para el tipo de cultivo definido en el prototipo se fijarán los valores óptimos para dicho cultivo y se definirán las acciones a llevar a cabo una vez superados los valores umbrales.
 	
 	\subsection*{Instalación de la BBDD MongoDB}
-	Instalación y configuración inicial del sistema de BBDD MongoDB dentro  Raspberry Pi. Alguno de los componentes del grupo, ya ha realizado esta tarea anteriormente.
+	YO usaria LO QUE VIMOS EN APPNUBE Y LO MONTARIA EN INTERNET LA MONGO DB
 	
 	\subsection*{Programación de la BBDD}
 	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. Se tiene experiencia en la ejecución de esta tarea en otros proyectos.
@@ -249,6 +245,9 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 
 \chapter{Ampliaciones}
 
+\subsection*{Alertas y notificaciones al usuario}
+	Permitir que el usuario defina una serie de valores umbrales y una vez se sobrepasen dichos valores, este sea avisado vía mail del estado del sistema para que se tomen las medidas necesarias en el caso de que fuesen necesarias.
+
 	\subsection*{Motor de control de persiana o toldo}
 	Para controlar la luminosidad del cultivo, se plantea como ampliación la instalación de un motor adicional para el control de la luz natural. Esta ampliación consistirá en la programación y configuración de una persiana móvil, o toldo, con un motor bidireccional. En caso de que haya demasiada luz, la cual pueda llegar a quemar la planta se activará el motor para bajar la persiana o toldo y reducir así la luz que incida en la planta. En caso de que la luz sea insuficiente y sea de día se activará para recoger la persiana o el toldo.
 	
@@ -259,8 +258,7 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 	\subsection*{Ampliación del tipo de sensores}
 	Aunque no está previsto inicialmente, es posible que para determinados cultivos sea necesario usar otro tipo de sensores como por ejemplo un sensor que obtenga la cantidad oxígeno disuelto en agua.
 
-	\subsection*{Consideración de las predicciones metorológicos}
-	Integrar el sistema actual con los valores de predicciones meteorológicas de forma que el sistema las tenga en cuenta en sus decisiones. Es decir, que además de los datos obtenidos sobre las lecturas de sensores realizadas, se tenga en cuenta las predicciones meteorológicas para la toma de decisiones en el sistema.
+
 	
 \newpage
 \addcontentsline{toc}{chapter}{Bibliografía}
