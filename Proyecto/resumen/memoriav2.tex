@@ -39,7 +39,7 @@
 % Editar con los datos correspondientes
 \newcommand{\titulo}{Sistema Autónomo de Riego y Monitorización de un Cultivo}
 \newcommand{\titulacion}{Máster de Ingeniería Informática}
-\newcommand{\autor}{Carlos Barranco , Alexander Quesada López}
+\newcommand{\autor}{Alexander Quesada y Carlos Barranco}
 %\newcommand{\director}{}
 
 % Colors definitions
@@ -89,10 +89,11 @@
 \listoffigures
 
 \chapter{Contexto y Descripción}
-	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Things) para el control de un cultivo equipado con un sistema de riego inteligente. Por tanto, el usuario podrá conocer en todo momento las condiciones ambientales en las que se encuentra el cultivo y consultar el histórico de las mediciones realizadas. Además el sistema garantizará que el cultivo poseerá el agua necesaria en todo momento de forma inteligente y eficiente, ya que se tendra en cuenta tanto las condiciones actuales como las previsiones meteorológicas. Para ello, a modo de prototipo se diseñará y construirá una jardinera adaptada capaz de soportar un cultivo y a la que sea posible adaptar los elementos IoT necesarios.
+	El objetivo de este proyecto es desarrollar un prototipo basado en tecnologías de IoT (Internet of Things) para el control de un cultivo equipado con un sistema de riego inteligente. Por tanto, el usuario podrá conocer en todo momento las condiciones ambientales en las que se encuentra el cultivo y consultar la evolución de las mediciones realizadas. Además el sistema garantizará que el cultivo poseerá el agua necesaria en todo momento de forma inteligente y eficiente, ya que se tendrá en cuenta tanto las condiciones actuales como las previsiones meteorológicas. Para ello, a modo de prototipo se diseñará y construirá una jardinera adaptada capaz de dar un soporte a un cultivo y sobre la que se podrán integrar los elementos IoT necesarios.
 
 
-	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad aire, humedad suelo,...) a través de sensores, y en función del tipo de cultivo y los valores registrados  se activará el sistema de riego del sistema. En una segunda fase, se podrán incluir otras funcionalidades como el aviso al usuario cuando en algunos de los parámetros registrados se sobrepasen valores umbrales vía mail.
+	Este dispositivo de encargará de medir los parámetros básicos para las plantas (temperatura, humedad aire, humedad suelo,...) a través de sensores, y en función del tipo de cultivo y los valores registrados se activará el sistema de riego del sistema. En una segunda fase, se podrán incluir otras funcionalidades como el aviso al usuario cuando en algunos de los parámetros registrados se sobrepasen valores umbrales vía mail.
+
 
 
 
@@ -146,7 +147,7 @@ Alguno de los sensores necesarios, estarán en contacto directo con el agua y po
 	\subsection*{Controladores}
 	La lógica del sistema se e ncontrará implementada en los siguientes elementos:
 		\begin{itemize}
-			\item Raspberry Pi.
+			\item Raspberry Pi. Se usará máquina virtual sobre PC de desarrollo.
 			\item ESP8266 | NodemCu.
 		\end{itemize}			
 
@@ -168,23 +169,20 @@ Alguno de los sensores necesarios, estarán en contacto directo con el agua y po
 \newpage
 \section{Presupuesto}
 
-REVISAR
-
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|l||l|l|}
 \hline
 Componente & Modelo & Precio (€) \\ \hline \hline
-Sensor Humedad &	Glyduino FC-28 &	0,85  \\ \hline
+Sensor Humedad Aire &	Glyduino FC-28 &	0,85  \\ \hline
 Sensor Fotovoltaico &  GL5549 & 0,15 \\ \hline
 Sensor Temperatura & LM35 & 0,85 \\ \hline
-Sensor pH & BPSCA K3031LG - HE32389 & 30 \\ \hline
+Sensor Humedad Suelo & YL69 & 0,69 \\ \hline
 Sensor Conductividad & DIY TDS & 13,15 \\ \hline
 ESP8266 & NodeMCU Lua Lolin V3 & 6,49 \\ \hline
 Bomba de riego & Mini Bomba de Agua DC 3V -5V Sumergible & 8,79 \\ \hline
-Servo Motor (2) & EU-ULN2003 Driver +Step motor & 4,99 \\ \hline
 Interruptor & Pulsador switch 12mm & 0,4 \\ \hline
-  & TOTAL & 65.67 \\ \hline
+  & TOTAL & 31,37 \\ \hline
 
 
 
@@ -244,7 +242,7 @@ Se dispone de integrantes del grupo con experiencia en elaboración de planes de
 	Permitir que el usuario defina una serie de valores umbrales y una vez se sobrepasen dichos valores, este sea avisado vía mail del estado del sistema para que se tomen las medidas necesarias en el caso de que fuesen necesarias.
 
 	\subsection*{Registro de la información en BBDD Mongo DB}
-	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. El objetivo es poder almacenar la información recibida en BBDD para en caso de caida del equipo sea posible recuperar los datos registrados o configuración del sistema. La BD Mongo DB se encontrará en instalada con Cloud (https://www.mongodb.com/cloud/atlas).
+	Diseñar el modelado y programación de la base de datos en el sistema MongoDB, para adaptar este sistema a las necesidades del proyecto. El objetivo es poder almacenar la información recibida en BBDD para en caso de caída del equipo sea posible recuperar los datos registrados o configuración del sistema. La BD Mongo DB se encontrará en instalada con Cloud (https://www.mongodb.com/cloud/atlas).
 
 
 	\subsection*{Motor de control de persiana o toldo}
